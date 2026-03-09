@@ -1,0 +1,39 @@
+{
+  "name": "jothi-bavan-hotel",
+  "version": "1.0.0",
+  "description": "MERN stack hotel management system with AI/ML sentiment analysis",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
+    "seed:demo-all": "node backend/scripts/seedAllDemoData.js",
+    "seed:test-data": "node backend/scripts/seedTestUsersAndReviews.js",
+    "seed:recommendation-data": "node backend/scripts/seedMlScenarios.js"
+  },
+  "keywords": [
+    "mern",
+    "hotel",
+    "sentiment-analysis",
+    "ml"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.6",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.22.1",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "sentiment": "^5.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  }
+}

@@ -1,0 +1,753 @@
+{
+  "reviews": [
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Masala Dosa.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4eccb",
+      "rating": 5,
+      "createdAt": "2025-11-09T05:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Masala Dosa.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4eccb",
+      "rating": 4,
+      "createdAt": "2025-11-09T06:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Masala Dosa.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4eccb",
+      "rating": 4,
+      "createdAt": "2025-11-09T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Masala Dosa.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4eccb",
+      "rating": 2,
+      "createdAt": "2025-11-09T05:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Masala Dosa.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4eccb",
+      "rating": 2,
+      "createdAt": "2025-11-09T06:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Masala Dosa.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4eccb",
+      "rating": 3,
+      "createdAt": "2025-11-09T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Idli Sambhar.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 5,
+      "createdAt": "2025-11-21T04:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Idli Sambhar.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 4,
+      "createdAt": "2025-11-21T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Idli Sambhar.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 4,
+      "createdAt": "2025-11-21T06:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Idli Sambhar.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 5,
+      "createdAt": "2025-11-21T04:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Idli Sambhar.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 2,
+      "createdAt": "2025-11-21T05:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Idli Sambhar.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 3,
+      "createdAt": "2025-11-21T06:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Idli Sambhar.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 4,
+      "createdAt": "2025-11-21T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Paneer Butter Masala.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4eccd",
+      "rating": 4,
+      "createdAt": "2025-12-03T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Paneer Butter Masala.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4eccd",
+      "rating": 5,
+      "createdAt": "2025-12-03T05:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Paneer Butter Masala.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4eccd",
+      "rating": 5,
+      "createdAt": "2025-12-03T06:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Paneer Butter Masala.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4eccd",
+      "rating": 4,
+      "createdAt": "2025-12-03T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Paneer Butter Masala.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4eccd",
+      "rating": 2,
+      "createdAt": "2025-12-03T05:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Paneer Butter Masala.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4eccd",
+      "rating": 3,
+      "createdAt": "2025-12-03T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Paneer Butter Masala.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4eccd",
+      "rating": 5,
+      "createdAt": "2025-12-03T05:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Chicken Biryani.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4ecce",
+      "rating": 2,
+      "createdAt": "2025-12-15T04:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Chicken Biryani.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4ecce",
+      "rating": 3,
+      "createdAt": "2025-12-15T05:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Chicken Biryani.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4ecce",
+      "rating": 2,
+      "createdAt": "2025-12-15T06:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Chicken Biryani.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4ecce",
+      "rating": 2,
+      "createdAt": "2025-12-15T04:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Chicken Biryani.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4ecce",
+      "rating": 5,
+      "createdAt": "2025-12-15T06:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Chicken Biryani.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4ecce",
+      "rating": 4,
+      "createdAt": "2025-12-15T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Chicken Biryani.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4ecce",
+      "rating": 3,
+      "createdAt": "2025-12-15T05:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Vada.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 3,
+      "createdAt": "2025-12-27T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Vada.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 4,
+      "createdAt": "2025-12-27T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Vada.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 3,
+      "createdAt": "2025-12-27T06:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Vada.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 5,
+      "createdAt": "2025-12-27T05:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Vada.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 4,
+      "createdAt": "2025-12-27T06:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Vada.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 4,
+      "createdAt": "2025-12-27T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Vada.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 3,
+      "createdAt": "2025-12-27T05:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Filter Coffee.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 4,
+      "createdAt": "2026-01-08T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Filter Coffee.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 4,
+      "createdAt": "2026-01-08T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Filter Coffee.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 4,
+      "createdAt": "2026-01-08T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Filter Coffee.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 2,
+      "createdAt": "2026-01-08T05:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Filter Coffee.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 2,
+      "createdAt": "2026-01-08T06:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Filter Coffee.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 3,
+      "createdAt": "2026-01-08T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Filter Coffee.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 4,
+      "createdAt": "2026-01-08T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Gulab Jamun.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 3,
+      "createdAt": "2026-01-20T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Gulab Jamun.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 4,
+      "createdAt": "2026-01-20T06:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Gulab Jamun.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 4,
+      "createdAt": "2026-01-20T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Gulab Jamun.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 5,
+      "createdAt": "2026-01-20T05:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Gulab Jamun.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 5,
+      "createdAt": "2026-01-20T06:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Gulab Jamun.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 4,
+      "createdAt": "2026-01-20T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Gulab Jamun.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 3,
+      "createdAt": "2026-01-20T05:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Pongal.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 4,
+      "createdAt": "2026-02-01T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Pongal.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 4,
+      "createdAt": "2026-02-01T06:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Pongal.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 5,
+      "createdAt": "2026-02-01T04:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Pongal.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 2,
+      "createdAt": "2026-02-01T05:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Pongal.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 3,
+      "createdAt": "2026-02-01T06:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Pongal.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 3,
+      "createdAt": "2026-02-01T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Curd Rice.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 4,
+      "createdAt": "2026-02-13T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Curd Rice.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 4,
+      "createdAt": "2026-02-13T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Curd Rice.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 3,
+      "createdAt": "2026-02-13T06:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Curd Rice.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 4,
+      "createdAt": "2026-02-13T04:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Curd Rice.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 2,
+      "createdAt": "2026-02-13T05:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Below average quality and flavor. Could be improved a lot. Dish: Curd Rice.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 2,
+      "createdAt": "2026-02-13T06:30:00",
+      "sentimentScore": 0.40000000000000013
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Curd Rice.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 4,
+      "createdAt": "2026-02-13T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Samosa.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 3,
+      "createdAt": "2026-02-25T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Samosa.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 4,
+      "createdAt": "2026-02-25T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Samosa.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 3,
+      "createdAt": "2026-02-25T06:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Samosa.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 3,
+      "createdAt": "2026-02-25T04:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "[DEMO] Very tasty and satisfying dish. Good quality and I would order again. Dish: Samosa.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 4,
+      "createdAt": "2026-02-25T05:30:00",
+      "sentimentScore": 3.2
+    },
+    {
+      "reviewText": "[DEMO] Outstanding taste, excellent quality, and perfectly cooked. Loved every bite. Dish: Samosa.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 5,
+      "createdAt": "2026-02-25T04:30:00",
+      "sentimentScore": 8.8
+    },
+    {
+      "reviewText": "[DEMO] Average experience. The dish was okay but not very memorable. Dish: Samosa.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 3,
+      "createdAt": "2026-02-25T05:30:00",
+      "sentimentScore": -0.4
+    },
+    {
+      "reviewText": "The samosa was amazing and very tasty",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 5,
+      "createdAt": "2026-03-09T05:42:17.127000",
+      "sentimentScore": 4
+    },
+    {
+      "reviewText": "The samosa was amazing and very tasty",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 5,
+      "createdAt": "2026-03-09T05:50:41.958000",
+      "sentimentScore": 4
+    },
+    {
+      "reviewText": "Idli Sambar was amazing and very tasty.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4eccc",
+      "rating": 5,
+      "createdAt": "2026-03-09T05:57:53.307000",
+      "sentimentScore": 4
+    },
+    {
+      "reviewText": "Vada is not bad.",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4eccf",
+      "rating": 4,
+      "createdAt": "2026-03-09T06:02:16.691000",
+      "sentimentScore": -2.220446049250313e-16
+    },
+    {
+      "reviewText": "Samosa is bad.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 2,
+      "createdAt": "2026-03-09T06:02:56.469000",
+      "sentimentScore": -2.4000000000000004
+    },
+    {
+      "reviewText": "curd rice was bad.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd3",
+      "rating": 2,
+      "createdAt": "2026-03-09T06:06:32.899000",
+      "sentimentScore": -2.4000000000000004
+    },
+    {
+      "reviewText": "Pongal was bad.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 2,
+      "createdAt": "2026-03-09T07:43:26.592000",
+      "sentimentScore": -2.4000000000000004
+    },
+    {
+      "reviewText": "Filter coffee was bad",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd0",
+      "rating": 2,
+      "createdAt": "2026-03-09T07:47:25.265000",
+      "sentimentScore": -2.4000000000000004
+    },
+    {
+      "reviewText": "It was bad.",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 2,
+      "createdAt": "2026-03-09T07:52:28.517000",
+      "sentimentScore": -2.4000000000000004
+    },
+    {
+      "reviewText": "Samosa was ok.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae822682ae741332521df9",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 3,
+      "createdAt": "2026-03-09T08:18:53.939000",
+      "sentimentScore": -1.4579
+    }
+  ],
+  "customers": [
+    {
+      "customerId": "69ae499055b4d9c6aaa4ecdc",
+      "createdAt": "2025-10-20T04:30:00",
+      "lastLogin": "2026-03-09T05:49:47.537000"
+    },
+    {
+      "customerId": "69ae499055b4d9c6aaa4ecdd",
+      "createdAt": "2025-10-25T04:30:00",
+      "lastLogin": null
+    },
+    {
+      "customerId": "69ae499055b4d9c6aaa4ecde",
+      "createdAt": "2025-10-30T04:30:00",
+      "lastLogin": "2026-03-09T04:28:22.198000"
+    },
+    {
+      "customerId": "69ae499055b4d9c6aaa4ecdf",
+      "createdAt": "2025-11-04T04:30:00",
+      "lastLogin": null
+    },
+    {
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "createdAt": "2025-11-09T04:30:00",
+      "lastLogin": "2026-03-09T07:42:55.332000"
+    },
+    {
+      "customerId": "69ae499055b4d9c6aaa4ece1",
+      "createdAt": "2025-11-14T04:30:00",
+      "lastLogin": null
+    },
+    {
+      "customerId": "69ae499055b4d9c6aaa4ece2",
+      "createdAt": "2025-11-19T04:30:00",
+      "lastLogin": null
+    },
+    {
+      "customerId": "69ae499055b4d9c6aaa4ece3",
+      "createdAt": "2025-11-24T04:30:00",
+      "lastLogin": null
+    },
+    {
+      "customerId": "69ae822682ae741332521df9",
+      "createdAt": "2026-03-09T08:17:42.685000",
+      "lastLogin": null
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+.customer-experience-page {
+  padding: 30px 0 50px;
+}
+
+.page-header-block {
+  margin-bottom: 18px;
+}
+
+.page-header-block h1 {
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.page-header-block p {
+  color: #4b5563;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.dish-card {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
+  text-align: left;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+}
+
+.dish-card:hover {
+  border-color: #111827;
+  transform: translateY(-2px);
+}
+
+.dish-card-image {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.dish-card h3 {
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.dish-card p {
+  margin-bottom: 8px;
+  color: #6b7280;
+}
+
+.dish-details-card {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.dish-details-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.section-overline {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6b7280;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.dish-meta {
+  color: #1f2937;
+  font-weight: 600;
+  margin: 12px 0;
+}
+
+.dish-description {
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.orders-list {
+  display: grid;
+  gap: 14px;
+}
+
+.order-card-block {
+  padding: 18px;
+}
+
+.order-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.ordered-items-wrap {
+  display: grid;
+  gap: 10px;
+}
+
+.ordered-item-row {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-pill {
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  background: #e5e7eb;
+}
+
+.status-pending { background: #fef3c7; color: #92400e; }
+.status-confirmed, .status-preparing, .status-ready { background: #dbeafe; color: #1e40af; }
+.status-delivered { background: #dcfce7; color: #166534; }
+.status-cancelled { background: #fee2e2; color: #991b1b; }
+
+.review-card-block {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.review-target {
+  margin-top: 6px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.review-warning {
+  color: #991b1b;
+  margin: 14px 0;
+}
+
+.star-inline {
+  display: flex;
+  gap: 8px;
+}
+
+.star-pick {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.empty-state-card {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .ordered-item-row,
+  .order-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
