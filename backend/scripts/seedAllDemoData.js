@@ -177,12 +177,12 @@ async function run() {
         { title: 'Quick Service', description: 'Efficient service without compromising quality.', icon: 'Fast' }
       ],
       contactInfo: {
-        phone: '+91 1234567890',
+        phone: '94896 10555',
         email: 'info@jothibavan.com',
-        address: '123 Main Street, Gandhi Nagar',
-        city: 'Chennai',
+        address: '331, Bhavani Main Road, Near RTO Office',
+        city: 'Perundurai',
         state: 'Tamil Nadu',
-        pincode: '600001'
+        pincode: '638 052'
       }
     });
 

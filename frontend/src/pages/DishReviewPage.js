@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Star } from 'lucide-react';
 import { customerAPI, dishAPI, orderAPI, reviewAPI } from '../utils/api';
+import { getDishImageSrc, getDishFallbackImage } from '../utils/dishImage';
 import './CustomerExperience.css';
 
 const DishReviewPage = () => {
@@ -41,6 +42,7 @@ const DishReviewPage = () => {
 
   const canReviewDish = useMemo(() => {
     return orders.some((order) =>
+      order.status === 'delivered' &&
       (order.items || []).some((item) => {
         const orderedDishId = item.dish?._id || item.dish;
         return String(orderedDishId) === String(dishId);
@@ -52,7 +54,7 @@ const DishReviewPage = () => {
     event.preventDefault();
 
     if (!canReviewDish) {
-      toast.error('You can only review dishes you have ordered');
+      toast.error('You can only review dishes from delivered orders');
       return;
     }
 
@@ -109,12 +111,20 @@ const DishReviewPage = () => {
     <div className="customer-experience-page">
       <div className="container">
         <div className="card review-card-block">
+          <img
+            className="review-dish-image"
+            src={getDishImageSrc(dish)}
+            alt={dish.name}
+            onError={(event) => {
+              event.currentTarget.src = getDishFallbackImage(dish.name, dish.category);
+            }}
+          />
           <h1>Review Dish</h1>
           <p className="review-target">{dish.name}</p>
 
           {!canReviewDish && (
             <p className="review-warning">
-              You can review only dishes from your orders. Please order this dish first.
+              You can review only dishes from delivered orders.
             </p>
           )}
 

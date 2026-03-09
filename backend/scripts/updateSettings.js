@@ -1,4 +1,8 @@
-require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+if (!process.env.MONGODB_URI) {
+  require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
+}
 const mongoose = require('mongoose');
 const Settings = require('../models/Settings');
 
@@ -16,10 +20,10 @@ async function updateSettings() {
       {},
       {
         $set: {
-          'contactInfo.address': '331, Bhavani Main Road, Near RTO Office, Perundurai',
+          'contactInfo.address': '331, Bhavani Main Road, Near RTO Office',
           'contactInfo.pincode': '638 052',
           'contactInfo.phone': '94896 10555',
-          'contactInfo.city': 'Erode',
+          'contactInfo.city': 'Perundurai',
           'contactInfo.state': 'Tamil Nadu'
         }
       },

@@ -92,12 +92,12 @@ settingsSchema.statics.getSiteSettings = async function() {
         }
       ],
       contactInfo: {
-        phone: '+91 9655834210',
+        phone: '94896 10555',
         email: 'info@jothibavan.com',
-        address: 'Gandhi Nagar,Thoppupalayam',
+        address: '331, Bhavani Main Road, Near RTO Office',
         city: 'Perundurai',
         state: 'Tamil Nadu',
-        pincode: '638060'
+        pincode: '638 052'
       }
     });
   }

@@ -701,6 +701,24 @@
       "rating": 3,
       "createdAt": "2026-03-09T08:18:53.939000",
       "sentimentScore": -1.4579
+    },
+    {
+      "reviewText": "Loved Pongal",
+      "sentimentLabel": "positive",
+      "customerId": "69ae822682ae741332521df9",
+      "dishId": "69ae498f55b4d9c6aaa4ecd2",
+      "rating": 4,
+      "createdAt": "2026-03-09T11:09:17.124000",
+      "sentimentScore": 0.8645
+    },
+    {
+      "reviewText": "Samosa was ok.",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae822682ae741332521df9",
+      "dishId": "69ae498f55b4d9c6aaa4ecd4",
+      "rating": 3,
+      "createdAt": "2026-03-09T11:09:44.491000",
+      "sentimentScore": 0
     }
   ],
   "customers": [
@@ -727,7 +745,7 @@
     {
       "customerId": "69ae499055b4d9c6aaa4ece0",
       "createdAt": "2025-11-09T04:30:00",
-      "lastLogin": "2026-03-09T07:42:55.332000"
+      "lastLogin": "2026-03-09T12:42:28.176000"
     },
     {
       "customerId": "69ae499055b4d9c6aaa4ece1",
@@ -747,7 +765,7 @@
     {
       "customerId": "69ae822682ae741332521df9",
       "createdAt": "2026-03-09T08:17:42.685000",
-      "lastLogin": null
+      "lastLogin": "2026-03-09T11:08:54.162000"
     }
   ]
 }

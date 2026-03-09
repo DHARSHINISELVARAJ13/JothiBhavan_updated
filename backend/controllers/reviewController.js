@@ -60,13 +60,14 @@ exports.createReview = async (req, res) => {
     if (customerId) {
       const hasOrderedDish = await Order.exists({
         customerId,
+        status: 'delivered',
         'items.dish': dish
       });
 
       if (!hasOrderedDish) {
         return res.status(403).json({
           success: false,
-          message: 'You can only review dishes you have ordered'
+          message: 'You can only review dishes from delivered orders'
         });
       }
     }

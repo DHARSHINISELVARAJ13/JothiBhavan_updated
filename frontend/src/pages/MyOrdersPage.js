@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { orderAPI } from '../utils/api';
+import { getDishImageSrc, getDishFallbackImage } from '../utils/dishImage';
 import './CustomerExperience.css';
 
 const MyOrdersPage = () => {
@@ -55,11 +56,21 @@ const MyOrdersPage = () => {
                     const dishId = item.dish?._id || item.dish;
                     return (
                       <div key={`${order._id}-${index}`} className="ordered-item-row">
-                        <div>
+                        <div className="ordered-item-media">
+                          <img
+                            className="ordered-item-image"
+                            src={getDishImageSrc(item.dish || { name: item.dishName, category: 'Special' })}
+                            alt={item.dishName || item.dish?.name || 'Dish'}
+                            onError={(event) => {
+                              event.currentTarget.src = getDishFallbackImage(item.dishName || item.dish?.name, item.dish?.category || 'Special');
+                            }}
+                          />
+                        </div>
+                        <div className="ordered-item-content">
                           <strong>{item.dishName || item.dish?.name || 'Dish'}</strong>
                           <p>{item.quantity} x ₹{item.price}</p>
                         </div>
-                        {dishId && (
+                        {dishId && order.status === 'delivered' && (
                           <button
                             type="button"
                             className="btn btn-primary btn-sm"

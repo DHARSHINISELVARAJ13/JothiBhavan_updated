@@ -38,7 +38,7 @@
 
 .dish-card-image {
   width: 100%;
-  height: 150px;
+  height: 168px;
   border-radius: 10px;
   object-fit: cover;
   margin-bottom: 10px;
@@ -124,6 +124,26 @@
   align-items: center;
 }
 
+.ordered-item-media {
+  flex-shrink: 0;
+}
+
+.ordered-item-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ordered-item-content {
+  flex: 1;
+}
+
+.ordered-item-content p {
+  margin-top: 3px;
+  color: #4b5563;
+}
+
 .status-pill {
   border-radius: 999px;
   padding: 5px 10px;
@@ -141,6 +161,14 @@
 .review-card-block {
   max-width: 700px;
   margin: 0 auto;
+}
+
+.review-dish-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 14px;
 }
 
 .review-target {
@@ -175,5 +203,14 @@
   .order-header-row {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .ordered-item-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .review-dish-image {
+    height: 180px;
   }
 }
