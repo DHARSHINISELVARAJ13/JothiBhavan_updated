@@ -7,6 +7,39 @@ import { ShoppingCart, Plus, Minus, XCircle, Sparkles } from 'lucide-react';
 import { getDishImageSrc, getDishFallbackImage } from '../utils/dishImage';
 import './CustomerOrders.css';
 
+const loadRazorpayScript = () => {
+  if (window.Razorpay) {
+    return Promise.resolve(true);
+  }
+
+  return new Promise((resolve) => {
+    const existingScript = document.querySelector('script[src="https://checkout.razorpay.com/v1/checkout.js"]');
+    if (existingScript) {
+      existingScript.addEventListener('load', () => resolve(true), { once: true });
+      existingScript.addEventListener('error', () => resolve(false), { once: true });
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
+const resolvePaymentStatus = (order) => {
+  const rawStatus = String(order?.payment_status || order?.paymentStatus || 'pending').toLowerCase();
+  if (rawStatus === 'unpaid') {
+    return 'pending';
+  }
+  if (['paid', 'failed', 'pending'].includes(rawStatus)) {
+    return rawStatus;
+  }
+  return 'pending';
+};
+
 const CustomerOrders = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -140,8 +173,59 @@ const CustomerOrders = () => {
         specialInstructions
       };
 
-      const response = await orderAPI.place(payload);
-      toast.success(response.data?.message || 'Order placed successfully');
+      const createPaymentOrderResponse = await orderAPI.createPaymentOrder(payload);
+      const paymentOrderData = createPaymentOrderResponse.data?.data;
+
+      if (!paymentOrderData?.razorpay_order_id || !paymentOrderData?.keyId) {
+        throw new Error('Failed to initialize payment. Please try again.');
+      }
+
+      const sdkReady = await loadRazorpayScript();
+      if (!sdkReady || !window.Razorpay) {
+        throw new Error('Unable to load Razorpay checkout. Check your network and retry.');
+      }
+
+      const paymentResponse = await new Promise((resolve, reject) => {
+        const razorpay = new window.Razorpay({
+          key: paymentOrderData.keyId,
+          amount: paymentOrderData.amount,
+          currency: paymentOrderData.currency,
+          name: 'Jothi Bavan',
+          description: 'Order Payment',
+          order_id: paymentOrderData.razorpay_order_id,
+          prefill: {
+            name: paymentOrderData.customer?.name || '',
+            email: paymentOrderData.customer?.email || '',
+            contact: paymentOrderData.customer?.contact || ''
+          },
+          notes: {
+            source: 'customer-orders-page'
+          },
+          theme: {
+            color: '#111827'
+          },
+          modal: {
+            ondismiss: () => reject(new Error('Payment cancelled by user'))
+          },
+          handler: (response) => resolve(response)
+        });
+
+        razorpay.on('payment.failed', (response) => {
+          reject(new Error(response?.error?.description || 'Payment failed. Please try again.'));
+        });
+
+        razorpay.open();
+      });
+
+      const verifyResponse = await orderAPI.verifyPayment({
+        ...payload,
+        checkoutHash: paymentOrderData.checkoutHash,
+        razorpay_order_id: paymentResponse.razorpay_order_id,
+        razorpay_payment_id: paymentResponse.razorpay_payment_id,
+        razorpay_signature: paymentResponse.razorpay_signature
+      });
+
+      toast.success(verifyResponse.data?.message || 'Payment successful. Order placed.');
 
       setCartItems([]);
       setOrderType('dine-in');
@@ -150,7 +234,7 @@ const CustomerOrders = () => {
 
       await loadData();
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Failed to place order');
+      toast.error(error.response?.data?.message || error.message || 'Failed to complete payment');
     } finally {
       setPlacingOrder(false);
     }
@@ -298,7 +382,7 @@ const CustomerOrders = () => {
               <div className="cart-footer">
                 <strong>Total: ₹{cartTotal.toFixed(2)}</strong>
                 <button type="button" className="btn btn-success" disabled={placingOrder} onClick={placeOrder}>
-                  {placingOrder ? 'Placing...' : 'Place Order'}
+                  {placingOrder ? 'Processing...' : 'Pay & Place Order'}
                 </button>
               </div>
             </div>
@@ -396,40 +480,45 @@ const CustomerOrders = () => {
               <p className="empty-text">You have not placed any orders yet.</p>
             ) : (
               <div className="my-orders-list">
-                {myOrders.map((order) => (
-                  <div key={order._id} className="order-card">
-                    <div className="order-card-header">
-                      <div>
-                        <strong>Order #{order._id.slice(-6).toUpperCase()}</strong>
-                        <p>{new Date(order.createdAt).toLocaleString()}</p>
-                      </div>
-                      <div className="order-meta">
-                        <span className={`badge status-${order.status}`}>{order.status}</span>
-                        <span className="badge">{order.orderType}</span>
-                        <strong>₹{Number(order.totalAmount || 0).toFixed(2)}</strong>
-                      </div>
-                    </div>
+                {myOrders.map((order) => {
+                  const paymentStatus = resolvePaymentStatus(order);
 
-                    <div className="order-items">
-                      {order.items?.map((item, idx) => (
-                        <div key={`${order._id}-${idx}`} className="order-item-row">
-                          <span>{item.dishName || item.dish?.name}</span>
-                          <span>{item.quantity} × ₹{item.price}</span>
+                  return (
+                    <div key={order._id} className="order-card">
+                      <div className="order-card-header">
+                        <div>
+                          <strong>Order #{order._id.slice(-6).toUpperCase()}</strong>
+                          <p>{new Date(order.createdAt).toLocaleString()}</p>
                         </div>
-                      ))}
-                    </div>
+                        <div className="order-meta">
+                          <span className={`badge status-${order.status}`}>{order.status}</span>
+                          <span className={`badge payment-${paymentStatus}`}>Payment: {paymentStatus}</span>
+                          <span className="badge">{order.orderType}</span>
+                          <strong>₹{Number(order.totalAmount || 0).toFixed(2)}</strong>
+                        </div>
+                      </div>
 
-                    {order.status === 'pending' && (
-                      <button
-                        type="button"
-                        className="btn btn-danger btn-sm"
-                        onClick={() => cancelOrder(order._id)}
-                      >
-                        Cancel Order
-                      </button>
-                    )}
-                  </div>
-                ))}
+                      <div className="order-items">
+                        {order.items?.map((item, idx) => (
+                          <div key={`${order._id}-${idx}`} className="order-item-row">
+                            <span>{item.dishName || item.dish?.name}</span>
+                            <span>{item.quantity} × ₹{item.price}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {order.status === 'pending' && (
+                        <button
+                          type="button"
+                          className="btn btn-danger btn-sm"
+                          onClick={() => cancelOrder(order._id)}
+                        >
+                          Cancel Order
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             )}
           </section>

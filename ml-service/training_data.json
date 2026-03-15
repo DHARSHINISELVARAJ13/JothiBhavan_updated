@@ -719,6 +719,51 @@
       "rating": 3,
       "createdAt": "2026-03-09T11:09:44.491000",
       "sentimentScore": 0
+    },
+    {
+      "reviewText": "Gulab Jamun was amazing!",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 3,
+      "createdAt": "2026-03-09T14:03:40.330000",
+      "sentimentScore": 1.6
+    },
+    {
+      "reviewText": "Gulab Jamun was amazing!",
+      "sentimentLabel": "positive",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69ae498f55b4d9c6aaa4ecd1",
+      "rating": 4,
+      "createdAt": "2026-03-09T14:06:18.306000",
+      "sentimentScore": 2.1752
+    },
+    {
+      "reviewText": "not good need improvement",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69b044a4fc794c319daf1c0e",
+      "rating": 5,
+      "createdAt": "2026-03-11T08:57:45.073000",
+      "sentimentScore": 2.0302
+    },
+    {
+      "reviewText": "not good food",
+      "sentimentLabel": "negative",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69b04346fc794c319daf1bf6",
+      "rating": 2,
+      "createdAt": "2026-03-11T08:59:57.162000",
+      "sentimentScore": -2.4000000000000004
+    },
+    {
+      "reviewText": "not good need improvement",
+      "sentimentLabel": "neutral",
+      "customerId": "69ae499055b4d9c6aaa4ece0",
+      "dishId": "69b04346fc794c319daf1bf6",
+      "rating": 5,
+      "createdAt": "2026-03-11T09:04:00.482000",
+      "sentimentScore": 2.0302
     }
   ],
   "customers": [
@@ -745,7 +790,7 @@
     {
       "customerId": "69ae499055b4d9c6aaa4ece0",
       "createdAt": "2025-11-09T04:30:00",
-      "lastLogin": "2026-03-09T12:42:28.176000"
+      "lastLogin": "2026-03-11T08:59:38.044000"
     },
     {
       "customerId": "69ae499055b4d9c6aaa4ece1",

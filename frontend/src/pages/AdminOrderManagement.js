@@ -17,7 +17,7 @@ const AdminOrderManagement = () => {
   const [orders, setOrders] = useState([]);
   const [stats, setStats] = useState(null);
   const [pagination, setPagination] = useState({ page: 1, pages: 1, total: 0, limit: 20 });
-  const [filters, setFilters] = useState({ status: '', orderType: '', date: '' });
+  const [filters, setFilters] = useState({ status: '', date: '' });
 
   const loadData = useCallback(async (page = pagination.page) => {
     try {
@@ -26,7 +26,6 @@ const AdminOrderManagement = () => {
         page,
         limit: pagination.limit,
         ...(filters.status ? { status: filters.status } : {}),
-        ...(filters.orderType ? { orderType: filters.orderType } : {}),
         ...(filters.date ? { date: filters.date } : {})
       };
 
@@ -49,7 +48,7 @@ const AdminOrderManagement = () => {
     } finally {
       setLoading(false);
     }
-  }, [filters.date, filters.orderType, filters.status, pagination.limit, pagination.page]);
+  }, [filters.date, filters.status, pagination.limit, pagination.page]);
 
   useEffect(() => {
     loadData(1);
@@ -72,6 +71,9 @@ const AdminOrderManagement = () => {
   if (loading) {
     return <div className="loading">Loading orders...</div>;
   }
+
+  const mostRevenueCustomer = stats?.customerInsights?.mostRevenueCustomer;
+  const mostOrdersCustomer = stats?.customerInsights?.mostOrdersCustomer;
 
   return (
     <div className="admin-order-page">
@@ -117,20 +119,39 @@ const AdminOrderManagement = () => {
           </div>
 
           <div className="input-group">
-            <label>Order Type</label>
-            <select value={filters.orderType} onChange={(e) => setFilters((prev) => ({ ...prev, orderType: e.target.value }))}>
-              <option value="">All</option>
-              <option value="dine-in">Dine-in</option>
-              <option value="takeaway">Takeaway</option>
-            </select>
-          </div>
-
-          <div className="input-group">
             <label>Date</label>
             <input type="date" value={filters.date} onChange={(e) => setFilters((prev) => ({ ...prev, date: e.target.value }))} />
           </div>
 
           <button className="btn btn-primary" onClick={applyFilters}>Apply</button>
+        </div>
+
+        <div className="order-insights-grid">
+          <div className="card order-insight-card">
+            <h3>Most Revenue Generated Customer</h3>
+            {mostRevenueCustomer ? (
+              <>
+                <p className="insight-name">{mostRevenueCustomer.name}</p>
+                <p className="insight-subtext">{mostRevenueCustomer.email || '-'}</p>
+                <p className="insight-metric">₹{Number(mostRevenueCustomer.totalRevenue || 0).toFixed(2)}</p>
+              </>
+            ) : (
+              <p className="insight-empty">No order data available</p>
+            )}
+          </div>
+
+          <div className="card order-insight-card">
+            <h3>Most Orders Customer</h3>
+            {mostOrdersCustomer ? (
+              <>
+                <p className="insight-name">{mostOrdersCustomer.name}</p>
+                <p className="insight-subtext">{mostOrdersCustomer.email || '-'}</p>
+                <p className="insight-metric">{mostOrdersCustomer.totalOrders} orders</p>
+              </>
+            ) : (
+              <p className="insight-empty">No order data available</p>
+            )}
+          </div>
         </div>
 
         <div className="card table-wrap">
@@ -139,7 +160,6 @@ const AdminOrderManagement = () => {
               <tr>
                 <th>Order</th>
                 <th>Customer</th>
-                <th>Type</th>
                 <th>Items</th>
                 <th>Total</th>
                 <th>Status</th>
@@ -157,7 +177,6 @@ const AdminOrderManagement = () => {
                     <strong>{order.customerName || order.customerId?.name}</strong>
                     <p>{order.customerEmail || order.customerId?.email}</p>
                   </td>
-                  <td>{order.orderType}</td>
                   <td>{order.items?.length || 0}</td>
                   <td>₹{Number(order.totalAmount || 0).toFixed(2)}</td>
                   <td><span className={`status-pill status-${order.status}`}>{order.status}</span></td>

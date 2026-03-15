@@ -111,7 +111,6 @@ const CustomerLogin = () => {
 
           <div className="login-footer">
             <p>Don't have an account? <Link to="/customer/register">Register here</Link></p>
-            <p>Already signed in? <Link to="/customer/orders">View Order History</Link></p>
           </div>
         </div>
       </div>

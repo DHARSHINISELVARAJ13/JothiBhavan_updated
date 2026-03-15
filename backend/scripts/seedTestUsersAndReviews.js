@@ -16,7 +16,7 @@ const customerSeeds = [
   { name: 'Divya R', email: 'test.customer2@jothibavan.com', phone: '9000000002' },
   { name: 'Karthik S', email: 'test.customer3@jothibavan.com', phone: '9000000003' },
   { name: 'Meena V', email: 'test.customer4@jothibavan.com', phone: '9000000004' },
-  { name: 'Prakash M', email: 'test.customer5@jothibavan.com', phone: '9000000005' },
+  { name: 'Prakash M', email: 'test.customer5@jothibavan.com', phone: '6374437153' },
   { name: 'Sangeetha P', email: 'test.customer6@jothibavan.com', phone: '9000000006' },
   { name: 'Vignesh T', email: 'test.customer7@jothibavan.com', phone: '9000000007' },
   { name: 'Yamini A', email: 'test.customer8@jothibavan.com', phone: '9000000008' }

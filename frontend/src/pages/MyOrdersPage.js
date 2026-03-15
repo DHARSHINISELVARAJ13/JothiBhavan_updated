@@ -5,6 +5,17 @@ import { orderAPI } from '../utils/api';
 import { getDishImageSrc, getDishFallbackImage } from '../utils/dishImage';
 import './CustomerExperience.css';
 
+const resolvePaymentStatus = (order) => {
+  const rawStatus = String(order?.payment_status || order?.paymentStatus || 'pending').toLowerCase();
+  if (rawStatus === 'unpaid') {
+    return 'pending';
+  }
+  if (['paid', 'failed', 'pending'].includes(rawStatus)) {
+    return rawStatus;
+  }
+  return 'pending';
+};
+
 const MyOrdersPage = () => {
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
@@ -48,7 +59,12 @@ const MyOrdersPage = () => {
                     <h3>Order ID: {order._id}</h3>
                     <p>{new Date(order.createdAt).toLocaleString()}</p>
                   </div>
-                  <span className={`status-pill status-${order.status}`}>{order.status}</span>
+                  <div className="order-header-pills">
+                    <span className={`status-pill status-${order.status}`}>{order.status}</span>
+                    <span className={`status-pill payment-${resolvePaymentStatus(order)}`}>
+                      Payment: {resolvePaymentStatus(order)}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="ordered-items-wrap">

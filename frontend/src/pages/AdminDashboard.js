@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { adminAPI } from '../utils/api';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { TrendingUp, TrendingDown, Star, MessageSquare, ThumbsUp, ThumbsDown, Minus } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { Star, MessageSquare, ThumbsUp, ThumbsDown, Minus } from 'lucide-react';
 import { toast } from 'react-toastify';
 import './AdminDashboard.css';
 
@@ -41,6 +41,7 @@ const AdminDashboard = () => {
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [timeRange, setTimeRange] = useState('30');
+  const [hoveredSentiment, setHoveredSentiment] = useState('negative');
 
   useEffect(() => {
     loadDashboard();
@@ -67,14 +68,24 @@ const AdminDashboard = () => {
     return <div className="loading">No data available</div>;
   }
 
-  const { summary, sentiment, ratingDistribution, topRatedDishes, mostNegativeFeedback, recentReviews } = dashboardData;
+  const { summary, sentiment, ratingDistribution, recentReviews } = dashboardData;
 
   // Prepare data for charts
   const sentimentChartData = [
-    { name: 'Positive', value: sentiment.breakdown.positive, color: '#10b981' },
-    { name: 'Neutral', value: sentiment.breakdown.neutral, color: '#f59e0b' },
-    { name: 'Negative', value: sentiment.breakdown.negative, color: '#ef4444' }
+    { key: 'positive', name: 'Positive', value: sentiment.breakdown.positive, color: '#10b981' },
+    { key: 'neutral', name: 'Neutral', value: sentiment.breakdown.neutral, color: '#f59e0b' },
+    { key: 'negative', name: 'Negative', value: sentiment.breakdown.negative, color: '#ef4444' }
   ];
+
+  const sentimentDishContributors = dashboardData.sentimentDishContributors || {
+    positive: [],
+    neutral: [],
+    negative: []
+  };
+
+  const activeSentiment = hoveredSentiment || 'negative';
+  const activeSentimentLabel = activeSentiment.charAt(0).toUpperCase() + activeSentiment.slice(1);
+  const activeContributors = sentimentDishContributors[activeSentiment] || [];
 
   const ratingChartData = Object.entries(ratingDistribution).map(([rating, count]) => ({
     rating: `${rating} ⭐`,
@@ -159,6 +170,12 @@ const AdminDashboard = () => {
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
+                  onMouseEnter={(_, index) => {
+                    const selected = sentimentChartData[index];
+                    if (selected?.key) {
+                      setHoveredSentiment(selected.key);
+                    }
+                  }}
                 >
                   {sentimentChartData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -181,6 +198,30 @@ const AdminDashboard = () => {
                 <span>Negative: {sentiment.breakdown.negative}</span>
               </div>
             </div>
+
+            <div className="sentiment-hover-insights">
+              <h3>
+                Top Foods in {activeSentimentLabel} Sentiment
+                <span className={`insight-sentiment-tag ${activeSentiment}`}>{activeSentimentLabel}</span>
+              </h3>
+              <p className="hover-hint">Hover a slice in the pie chart to switch sentiment details.</p>
+
+              {activeContributors.length > 0 ? (
+                <ul className="sentiment-food-list">
+                  {activeContributors.map((item, index) => (
+                    <li key={`${activeSentiment}-${item.dishId || item.dishName}-${index}`} className="sentiment-food-item">
+                      <span className="food-rank">#{index + 1}</span>
+                      <span className="food-name">{item.dishName}</span>
+                      <span className="food-meta">
+                        {item.reviewCount} {activeSentimentLabel.toLowerCase()} out of {item.totalDishReviews || item.reviewCount} total ({item.percentageOfSentiment}% of {activeSentimentLabel.toLowerCase()})
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="no-data no-data-small">No dish-level contributors available for this sentiment in the selected range.</p>
+              )}
+            </div>
           </div>
 
           {/* Rating Distribution */}
@@ -195,78 +236,6 @@ const AdminDashboard = () => {
                 <Bar dataKey="count" fill="#667eea" />
               </BarChart>
             </ResponsiveContainer>
-          </div>
-        </div>
-
-        {/* Top Rated Dishes */}
-        <div className="insights-grid">
-          <div className="insight-card card">
-            <div className="insight-header">
-              <h2>
-                <TrendingUp size={24} color="#10b981" />
-                Top Rated Dishes
-              </h2>
-            </div>
-            {topRatedDishes && topRatedDishes.length > 0 ? (
-              <div className="dish-list">
-                {topRatedDishes.map((item, index) => (
-                  item?.dish ? (
-                    <div key={index} className="dish-item">
-                      <div className="dish-rank">#{index + 1}</div>
-                      <div className="dish-info">
-                        <h4>{item.dish.name}</h4>
-                        <p className="dish-category">{item.dish.category}</p>
-                      </div>
-                      <div className="dish-stats">
-                        <span className="dish-rating">
-                          <Star size={16} fill="#fbbf24" color="#fbbf24" />
-                          {item.avgRating}
-                        </span>
-                        <span className="dish-reviews">{item.reviewCount} reviews</span>
-                        <span className="dish-positive">{item.positivePercentage}% positive</span>
-                      </div>
-                    </div>
-                  ) : null
-                ))}
-              </div>
-            ) : (
-              <p className="no-data">No reviews yet. Dishes need at least 3 reviews to appear here.</p>
-            )}
-          </div>
-
-          {/* Most Negative Feedback */}
-          <div className="insight-card card">
-            <div className="insight-header">
-              <h2>
-                <TrendingDown size={24} color="#ef4444" />
-                Needs Improvement
-              </h2>
-            </div>
-            {mostNegativeFeedback && mostNegativeFeedback.length > 0 ? (
-              <div className="dish-list">
-                {mostNegativeFeedback.map((item, index) => (
-                  item?.dish ? (
-                    <div key={index} className="dish-item negative">
-                      <div className="dish-rank alert">#{index + 1}</div>
-                      <div className="dish-info">
-                        <h4>{item.dish.name}</h4>
-                        <p className="dish-category">{item.dish.category}</p>
-                      </div>
-                      <div className="dish-stats">
-                        <span className="dish-rating warning">
-                          <Star size={16} color="#ef4444" />
-                          {item.avgRating}
-                        </span>
-                        <span className="dish-negative">{item.negativeCount} negative</span>
-                        <span className="dish-negative">{item.negativePercentage}% negative</span>
-                      </div>
-                    </div>
-                  ) : null
-                ))}
-              </div>
-            ) : (
-              <p className="no-data">Great! No dishes with negative feedback.</p>
-            )}
           </div>
         </div>
 

@@ -47,6 +47,93 @@ exports.getDashboardAnalytics = async (req, res) => {
       negative: totalReviewsInRange > 0 ? ((sentimentBreakdown.negative / totalReviewsInRange) * 100).toFixed(1) : 0
     };
 
+    // Top dish contributors per sentiment for hover drill-down in pie chart.
+    const sentimentDishContributorsAgg = await Review.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: daysAgo },
+          dish: { $ne: null },
+          'sentiment.label': { $in: ['positive', 'neutral', 'negative'] }
+        }
+      },
+      {
+        $group: {
+          _id: {
+            sentiment: '$sentiment.label',
+            dish: '$dish'
+          },
+          reviewCount: { $sum: 1 }
+        }
+      },
+      {
+        $lookup: {
+          from: 'dishes',
+          localField: '_id.dish',
+          foreignField: '_id',
+          as: 'dishData'
+        }
+      },
+      {
+        $unwind: {
+          path: '$dishData',
+          preserveNullAndEmptyArrays: true
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          sentiment: '$_id.sentiment',
+          dishId: '$_id.dish',
+          reviewCount: 1,
+          dishName: { $ifNull: ['$dishData.name', 'Unknown Dish'] }
+        }
+      },
+      { $sort: { sentiment: 1, reviewCount: -1, dishName: 1 } }
+    ]);
+
+    const sentimentDishContributors = {
+      positive: [],
+      neutral: [],
+      negative: []
+    };
+
+    const dishReviewTotalsByName = {};
+
+    const normalizeDishName = (name = '') => String(name || 'Unknown Dish').trim().toLowerCase();
+
+    sentimentDishContributorsAgg.forEach((item) => {
+      const dishNameKey = normalizeDishName(item.dishName);
+      dishReviewTotalsByName[dishNameKey] = (dishReviewTotalsByName[dishNameKey] || 0) + item.reviewCount;
+    });
+
+    sentimentDishContributorsAgg.forEach((item) => {
+      if (!sentimentDishContributors[item.sentiment]) {
+        return;
+      }
+
+      const sentimentTotal = sentimentBreakdown[item.sentiment] || 0;
+      const totalDishReviews = dishReviewTotalsByName[normalizeDishName(item.dishName)] || item.reviewCount;
+      const percentageOfSentiment = sentimentTotal > 0
+        ? Number(((item.reviewCount / sentimentTotal) * 100).toFixed(1))
+        : 0;
+      const percentageOfDish = totalDishReviews > 0
+        ? Number(((item.reviewCount / totalDishReviews) * 100).toFixed(1))
+        : 0;
+
+      sentimentDishContributors[item.sentiment].push({
+        dishId: item.dishId,
+        dishName: item.dishName,
+        reviewCount: item.reviewCount,
+        totalDishReviews,
+        percentageOfSentiment,
+        percentageOfDish
+      });
+    });
+
+    Object.keys(sentimentDishContributors).forEach((sentimentKey) => {
+      sentimentDishContributors[sentimentKey] = sentimentDishContributors[sentimentKey].slice(0, 5);
+    });
+
     // Average rating
     const avgRatingResult = await Review.aggregate([
       { $match: { createdAt: { $gte: daysAgo } } },
@@ -209,6 +296,7 @@ exports.getDashboardAnalytics = async (req, res) => {
           breakdown: sentimentBreakdown,
           percentages: sentimentPercentages
         },
+        sentimentDishContributors,
         ratingDistribution: ratingDist,
         topRatedDishes: formattedTopDishes,
         mostNegativeFeedback: formattedNegativeDishes,

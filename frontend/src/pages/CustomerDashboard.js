@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { customerAPI, reviewAPI } from '../utils/api';
 import '../styles/CustomerDashboard.css';
-import { User, LogOut, UtensilsCrossed, MessageSquare, Clock, Star } from 'lucide-react';
+import { User, LogOut, UtensilsCrossed, MessageSquare, Star } from 'lucide-react';
 
 // Helper function to extract dish name from review text
 const extractDishNameFromReview = (reviewText) => {
@@ -256,15 +256,6 @@ const CustomerDashboard = () => {
             </div>
           </div>
         )}
-
-        {/* Info Section */}
-        <div className="info-section">
-          <div className="info-card">
-            <Clock size={24} />
-            <h3>Smart Dining Enabled</h3>
-            <p>Your account now supports food ordering, order history, and ML-powered dish recommendations.</p>
-          </div>
-        </div>
       </div>
     </div>
   );

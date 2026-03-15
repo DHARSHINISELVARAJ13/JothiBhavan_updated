@@ -6,6 +6,8 @@ const router = express.Router();
 
 // Customer routes
 router.post('/', authenticateToken, orderController.placeOrder);
+router.post('/payment/create-order', authenticateToken, orderController.createRazorpayOrder);
+router.post('/payment/verify', authenticateToken, orderController.verifyRazorpayPayment);
 router.get('/my', authenticateToken, orderController.getMyOrders);
 router.get('/my/:orderId', authenticateToken, orderController.getMyOrderById);
 router.patch('/my/:orderId/cancel', authenticateToken, orderController.cancelOrder);

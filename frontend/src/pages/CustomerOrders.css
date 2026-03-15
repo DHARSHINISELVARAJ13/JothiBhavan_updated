@@ -186,6 +186,10 @@
 .status-delivered { background: #bbf7d0; }
 .status-cancelled { background: #fee2e2; }
 
+.payment-paid { background: #d1fae5; color: #065f46; }
+.payment-pending { background: #fef3c7; color: #92400e; }
+.payment-failed { background: #fee2e2; color: #991b1b; }
+
 .order-items {
   display: grid;
   gap: 6px;

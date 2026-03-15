@@ -61,6 +61,8 @@ MONGODB_URI=<your_mongodb_uri>
 JWT_SECRET=<your_secret>
 NODE_ENV=development
 ML_SERVICE_URL=http://localhost:5001
+RAZORPAY_KEY_ID=<your_razorpay_test_key_id>
+RAZORPAY_KEY_SECRET=<your_razorpay_test_key_secret>
 ```
 
 ### ML Service: `ml-service/.env`
@@ -186,6 +188,8 @@ npm start
 - `GET /api/customer/me`
 - `GET /api/reviews/customer/my-reviews`
 - `POST /api/orders`
+- `POST /api/orders/payment/create-order`
+- `POST /api/orders/payment/verify`
 - `GET /api/orders/my`
 - `PATCH /api/orders/my/:orderId/cancel`
 - `GET /api/recommendations/my`

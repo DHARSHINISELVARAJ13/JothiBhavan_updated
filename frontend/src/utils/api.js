@@ -24,7 +24,7 @@ const getScopedToken = (url = '') => {
     return customerToken;
   }
 
-  if (url.startsWith('/orders/my') || url === '/orders' || url.startsWith('/recommendations/my')) {
+  if (url.startsWith('/orders/my') || url === '/orders' || url.startsWith('/orders/payment') || url.startsWith('/recommendations/my')) {
     return customerToken;
   }
 
@@ -146,6 +146,8 @@ export const settingsAPI = {
 
 export const orderAPI = {
   place: (data) => api.post('/orders', data, { headers: withBearer(getCustomerToken()) }),
+  createPaymentOrder: (data) => api.post('/orders/payment/create-order', data, { headers: withBearer(getCustomerToken()) }),
+  verifyPayment: (data) => api.post('/orders/payment/verify', data, { headers: withBearer(getCustomerToken()) }),
   getMyOrders: () => api.get('/orders/my', { headers: withBearer(getCustomerToken()) }),
   getMyOrderById: (orderId) => api.get(`/orders/my/${orderId}`, { headers: withBearer(getCustomerToken()) }),
   cancelMyOrder: (orderId) => api.patch(`/orders/my/${orderId}/cancel`, {}, { headers: withBearer(getCustomerToken()) }),
